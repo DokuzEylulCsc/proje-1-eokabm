@@ -29,8 +29,6 @@ namespace OtelReservasyonUygulamasi
             }
         }
 
-        //protected int Kapasite { set => kapasite = value; }
-
         protected int Kapasite
         {
             set
@@ -38,5 +36,30 @@ namespace OtelReservasyonUygulamasi
                 kapasite = value;
             }
         }
+
+        public int rezervasyonYap(Rezervasyon rezervasyon)
+        {
+            bool yapilabilirMi = true;
+
+            foreach(Rezervasyon r in rezervasyonlar)
+            {
+                if(rezervasyon.Bitis_Tarihi > r.Baslangic_Tarihi && rezervasyon.Baslangic_Tarihi < r.Bitis_Tarihi)
+                {
+                    yapilabilirMi = false;
+                    break;
+                }
+            }
+            if(yapilabilirMi == true)
+            {
+                rezervasyonlar.Add(rezervasyon);
+                return this.no;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+
     }
 }

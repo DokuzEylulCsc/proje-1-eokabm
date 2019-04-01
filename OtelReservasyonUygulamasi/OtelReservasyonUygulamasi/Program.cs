@@ -15,9 +15,7 @@ namespace OtelReservasyonUygulamasi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-
-            tempClass.deneme();
+            Application.Run(new Form1());
         }
     }
 }
