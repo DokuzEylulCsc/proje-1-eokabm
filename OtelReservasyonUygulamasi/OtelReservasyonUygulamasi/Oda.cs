@@ -4,17 +4,24 @@ using System.Collections.Generic;
 namespace OtelReservasyonUygulamasi
 {
     abstract class Oda 
-    {
+    {   
         private int no; //oda numarası 101,102,...,504
         private int kapasite; //1 ya da 2
-        
-        public List<Rezervasyon> rezervasyonlar; //odaya ait rezervasyonlar
+        private List<Rezervasyon> rezervasyonlar; //odaya ait rezervasyonlar
 
         public Oda(int no)
         {
             this.no = no;
             //kapasite alt class da atanıcak.
             rezervasyonlar = new List<Rezervasyon> { };
+        }
+
+        public List<Rezervasyon> Rezervasyonlar
+        {
+            get
+            {
+                return rezervasyonlar;
+            }
         }
 
         public int No
@@ -59,7 +66,19 @@ namespace OtelReservasyonUygulamasi
 
         public Boolean rezervasyonIptal(int rez_no)
         {
-            return true;
+            bool silindimi=true;
+            foreach(Rezervasyon rez in rezervasyonlar)
+            {
+                if (rez.No == rez_no)
+                {
+                    rezervasyonlar.Remove(rez);
+                    silindimi = true;
+                    break;
+                }
+                else
+                    silindimi = false;
+            }
+            return silindimi;
         }
         
     }

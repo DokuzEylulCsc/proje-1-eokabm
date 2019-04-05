@@ -7,7 +7,6 @@ namespace OtelReservasyonUygulamasi
     {
         private static int oda_sayisi = 20;
         public Oda[] odalar;
-        //private List<Rezervasyon> rezervasyonlar;
 
         public Otel()
         {

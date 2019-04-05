@@ -46,6 +46,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxRezIpt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxKisi
@@ -53,7 +55,7 @@
             this.comboBoxKisi.CausesValidation = false;
             this.comboBoxKisi.Enabled = false;
             this.comboBoxKisi.FormattingEnabled = true;
-            this.comboBoxKisi.Location = new System.Drawing.Point(132, 85);
+            this.comboBoxKisi.Location = new System.Drawing.Point(150, 50);
             this.comboBoxKisi.MaxDropDownItems = 2;
             this.comboBoxKisi.MaxLength = 1;
             this.comboBoxKisi.Name = "comboBoxKisi";
@@ -62,9 +64,9 @@
             // 
             // buttonRezYap
             // 
-            this.buttonRezYap.Location = new System.Drawing.Point(44, 164);
+            this.buttonRezYap.Location = new System.Drawing.Point(62, 129);
             this.buttonRezYap.Name = "buttonRezYap";
-            this.buttonRezYap.Size = new System.Drawing.Size(217, 23);
+            this.buttonRezYap.Size = new System.Drawing.Size(229, 23);
             this.buttonRezYap.TabIndex = 1;
             this.buttonRezYap.Text = "Rezervasyon Yap";
             this.buttonRezYap.UseVisualStyleBackColor = true;
@@ -72,9 +74,9 @@
             // 
             // RezIpt
             // 
-            this.RezIpt.Location = new System.Drawing.Point(44, 248);
+            this.RezIpt.Location = new System.Drawing.Point(62, 213);
             this.RezIpt.Name = "RezIpt";
-            this.RezIpt.Size = new System.Drawing.Size(217, 23);
+            this.RezIpt.Size = new System.Drawing.Size(229, 23);
             this.RezIpt.TabIndex = 2;
             this.RezIpt.Text = "Rezervasyon İptal Et";
             this.RezIpt.UseVisualStyleBackColor = true;
@@ -82,9 +84,9 @@
             // 
             // RezYaz
             // 
-            this.RezYaz.Location = new System.Drawing.Point(44, 383);
+            this.RezYaz.Location = new System.Drawing.Point(62, 289);
             this.RezYaz.Name = "RezYaz";
-            this.RezYaz.Size = new System.Drawing.Size(217, 23);
+            this.RezYaz.Size = new System.Drawing.Size(229, 23);
             this.RezYaz.TabIndex = 3;
             this.RezYaz.Text = "Rezervasyonları Listele";
             this.RezYaz.UseVisualStyleBackColor = true;
@@ -93,7 +95,7 @@
             // labelKisi
             // 
             this.labelKisi.AutoSize = true;
-            this.labelKisi.Location = new System.Drawing.Point(70, 88);
+            this.labelKisi.Location = new System.Drawing.Point(88, 53);
             this.labelKisi.Name = "labelKisi";
             this.labelKisi.Size = new System.Drawing.Size(56, 13);
             this.labelKisi.TabIndex = 5;
@@ -102,7 +104,7 @@
             // labelOdaTip
             // 
             this.labelOdaTip.AutoSize = true;
-            this.labelOdaTip.Location = new System.Drawing.Point(76, 61);
+            this.labelOdaTip.Location = new System.Drawing.Point(94, 26);
             this.labelOdaTip.Name = "labelOdaTip";
             this.labelOdaTip.Size = new System.Drawing.Size(50, 13);
             this.labelOdaTip.TabIndex = 6;
@@ -116,27 +118,29 @@
             "Tek Yataklı",
             "Çift Yataklı",
             "İkiz Yataklı"});
-            this.comboBoxOdaTip.Location = new System.Drawing.Point(132, 58);
+            this.comboBoxOdaTip.Location = new System.Drawing.Point(150, 23);
             this.comboBoxOdaTip.MaxDropDownItems = 3;
             this.comboBoxOdaTip.Name = "comboBoxOdaTip";
-            this.comboBoxOdaTip.Size = new System.Drawing.Size(129, 21);
+            this.comboBoxOdaTip.Size = new System.Drawing.Size(141, 21);
             this.comboBoxOdaTip.TabIndex = 7;
             this.comboBoxOdaTip.SelectedIndexChanged += new System.EventHandler(this.comboBoxOdaTip_SelectedIndexChanged);
             // 
             // dateTimePickerBasTar
             // 
-            this.dateTimePickerBasTar.Location = new System.Drawing.Point(132, 112);
+            this.dateTimePickerBasTar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerBasTar.Location = new System.Drawing.Point(150, 77);
             this.dateTimePickerBasTar.MaxDate = new System.DateTime(2020, 11, 30, 0, 0, 0, 0);
-            this.dateTimePickerBasTar.MinDate = new System.DateTime(2019, 3, 30, 0, 0, 0, 0);
+            this.dateTimePickerBasTar.MinDate = new System.DateTime(2019, 4, 5, 19, 59, 23, 0);
             this.dateTimePickerBasTar.Name = "dateTimePickerBasTar";
-            this.dateTimePickerBasTar.Size = new System.Drawing.Size(129, 20);
+            this.dateTimePickerBasTar.Size = new System.Drawing.Size(141, 20);
             this.dateTimePickerBasTar.TabIndex = 8;
+            this.dateTimePickerBasTar.Value = new System.DateTime(2019, 4, 5, 19, 59, 23, 0);
             this.dateTimePickerBasTar.ValueChanged += new System.EventHandler(this.dateTimePickerBasTar_ValueChanged);
             // 
             // labelBasTar
             // 
             this.labelBasTar.AutoSize = true;
-            this.labelBasTar.Location = new System.Drawing.Point(41, 118);
+            this.labelBasTar.Location = new System.Drawing.Point(59, 83);
             this.labelBasTar.Name = "labelBasTar";
             this.labelBasTar.Size = new System.Drawing.Size(85, 13);
             this.labelBasTar.TabIndex = 9;
@@ -145,16 +149,17 @@
             // dateTimePickerBitTar
             // 
             this.dateTimePickerBitTar.Enabled = false;
-            this.dateTimePickerBitTar.Location = new System.Drawing.Point(132, 138);
+            this.dateTimePickerBitTar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerBitTar.Location = new System.Drawing.Point(150, 103);
             this.dateTimePickerBitTar.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerBitTar.Name = "dateTimePickerBitTar";
-            this.dateTimePickerBitTar.Size = new System.Drawing.Size(129, 20);
+            this.dateTimePickerBitTar.Size = new System.Drawing.Size(141, 20);
             this.dateTimePickerBitTar.TabIndex = 10;
             // 
             // labelBitTar
             // 
             this.labelBitTar.AutoSize = true;
-            this.labelBitTar.Location = new System.Drawing.Point(68, 144);
+            this.labelBitTar.Location = new System.Drawing.Point(86, 109);
             this.labelBitTar.Name = "labelBitTar";
             this.labelBitTar.Size = new System.Drawing.Size(58, 13);
             this.labelBitTar.TabIndex = 11;
@@ -185,33 +190,56 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Oda No";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 78;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Oda Tipi";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 86;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Kisi Sayisi";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 92;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Baslangic";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 107;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Bitis";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 101;
+            // 
+            // textBoxRezIpt
+            // 
+            this.textBoxRezIpt.Location = new System.Drawing.Point(197, 187);
+            this.textBoxRezIpt.Name = "textBoxRezIpt";
+            this.textBoxRezIpt.Size = new System.Drawing.Size(94, 20);
+            this.textBoxRezIpt.TabIndex = 13;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Silinecek Rezervasyon No";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxRezIpt);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.labelBitTar);
             this.Controls.Add(this.dateTimePickerBitTar);
@@ -225,7 +253,7 @@
             this.Controls.Add(this.buttonRezYap);
             this.Controls.Add(this.comboBoxKisi);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Otel Rezervasyon";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,6 +280,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.TextBox textBoxRezIpt;
+        private System.Windows.Forms.Label label1;
     }
 }
 

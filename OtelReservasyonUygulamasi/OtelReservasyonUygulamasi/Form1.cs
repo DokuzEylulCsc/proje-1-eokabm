@@ -92,28 +92,38 @@ namespace OtelReservasyonUygulamasi
             {
                 MessageBox.Show("Rezervasyonunuz " + oda_no + " no lu odaya yapıldı.");
             }
-            /*
-            ListViewItem ekle = new ListViewItem(kisiSayisi.ToString());
-            //ekle.SubItems.Add(kisiSayisi.ToString());
-            ekle.SubItems.Add(comboBoxOdaTip.SelectedItem.ToString());
-            ekle.SubItems.Add(dateTimePickerBasTar.Text);
-            ekle.SubItems.Add(dateTimePickerBitTar.Text);
-            ekle.SubItems.Add(hangiTip.ToString());
-            listView1.Items.Add(ekle);
-            */
-            //buttonRezYap += Click() ;
             
+            buttonRezYap.Click += new EventHandler(RezYaz_Click);   //Burası Silinebilir
         }
 
         private void RezIpt_Click(object sender, EventArgs e)
         {
-            foreach (Oda oda in otel.odalar)
+            bool kontrol = true;
+            if (Int32.TryParse(textBoxRezIpt.Text, out int value))  //Eğer Numerik ise
             {
-                foreach (Rezervasyon rez in oda.rezervasyonlar)
+                foreach (Oda oda in otel.odalar)
                 {
-                    if(rez)
+                    foreach(Rezervasyon rez in oda.Rezervasyonlar)
+                    {
+                        if (oda.rezervasyonIptal(Int32.Parse(textBoxRezIpt.Text)) == true)
+                        {
+                            oda.rezervasyonIptal(Int32.Parse(textBoxRezIpt.Text));
+                            MessageBox.Show("Başarıyla Silindi");
+                            kontrol = false;
+                            break;
+                        }
+                    }
                 }
+                
             }
+            else
+            {
+                //Eğer numerik Değilse
+                MessageBox.Show("Lütfen Sayi Giriniz.");
+            }
+            if(kontrol)
+                MessageBox.Show("Silinecek Rezervasyon Bulunamadı.");
+
         }
         
         private void RezYaz_Click(object sender, EventArgs e)
@@ -121,9 +131,8 @@ namespace OtelReservasyonUygulamasi
             listView1.Items.Clear();
             foreach (Oda oda in otel.odalar)
             {
-                foreach (Rezervasyon rez in oda.rezervasyonlar)
+                foreach (Rezervasyon rez in oda.Rezervasyonlar)
                 {
-
                     ListViewItem ekle = new ListViewItem(rez.No.ToString());
                     ekle.SubItems.Add(oda.No.ToString());
                     ekle.SubItems.Add(oda.GetType().Name.ToString());
@@ -132,10 +141,7 @@ namespace OtelReservasyonUygulamasi
                     ekle.SubItems.Add(rez.Bitis_Tarihi.ToShortDateString());
                     listView1.Items.Add(ekle);
                 }
-
             }
-
-
         }
     }
 }

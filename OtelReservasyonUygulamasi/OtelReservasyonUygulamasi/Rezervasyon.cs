@@ -50,8 +50,6 @@ namespace OtelReservasyonUygulamasi
                 return bitis_tarihi;
             }
         }
-
-
-
+        
     }
 }
