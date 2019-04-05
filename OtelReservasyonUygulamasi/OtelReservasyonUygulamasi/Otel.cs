@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OtelReservasyonUygulamasi
 {
@@ -9,6 +7,7 @@ namespace OtelReservasyonUygulamasi
     {
         private static int oda_sayisi = 20;
         public Oda[] odalar;
+        //private List<Rezervasyon> rezervasyonlar;
 
         public Otel()
         {
@@ -51,6 +50,7 @@ namespace OtelReservasyonUygulamasi
                     if (o.No % 100 == 1 || o.No % 100 == 2)
                     {
                         kontrol = o.rezervasyonYap(rezervasyon);
+                        
                     }
                     else
                     {
@@ -83,11 +83,14 @@ namespace OtelReservasyonUygulamasi
                     if (kontrol != 0) break; //rezervasyon yapıldı. oda no: kontrol
                 }
             }
-
+            
             return kontrol;
         }
 
-
-
+        public Boolean rezervasyonIptal(int rez_no) 
+        {
+            return true;
+        }
+        
     }
 }

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace OtelReservasyonUygulamasi
 {
@@ -15,7 +12,8 @@ namespace OtelReservasyonUygulamasi
 
         public Rezervasyon(int kisiSayisi, DateTime basTar, DateTime bitTar)
         {
-            this.no = ++rez_no;
+            rez_no++;
+            this.no = rez_no;
             this.kisi_sayisi = kisiSayisi;
             this.baslangic_tarihi = basTar;
             this.bitis_tarihi = bitTar;
@@ -25,10 +23,10 @@ namespace OtelReservasyonUygulamasi
         {
             get
             {
-                return No;
+                return no;
             }
         }
-
+       
         public int Kisi_sayisi
         {
             get

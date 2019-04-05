@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using System.Collections.Generic;
+
 
 namespace OtelReservasyonUygulamasi
 {
@@ -14,7 +10,7 @@ namespace OtelReservasyonUygulamasi
         private Otel otel;
         private int hangiTip;
         private int kisiSayisi;
-        private int rez_no;
+        //private int rez_no;
         private int oda_no;
         private DateTime basTar;
         private DateTime bitTar;
@@ -33,9 +29,27 @@ namespace OtelReservasyonUygulamasi
         {
             dateTimePickerBitTar.MinDate = dateTimePickerBasTar.Value;
             dateTimePickerBitTar.Enabled = true;
+            //bitiş tarihi datetimerpicker ın min alabileceği değeri baş tarihinde seçilen değer yapıyor.
         }
 
-        private void buttonRezYap_Click(object sender, EventArgs e)
+        private void comboBoxOdaTip_SelectedIndexChanged(object sender, EventArgs e) //
+        {
+            comboBoxKisi.Enabled = true;
+            comboBoxKisi.Items.Clear();
+
+            if (comboBoxOdaTip.SelectedIndex == 0)
+            {
+                comboBoxKisi.Items.Add(1);
+                comboBoxKisi.SelectedItem = false;
+            }
+            else
+            {
+                comboBoxKisi.Items.Add(1);
+                comboBoxKisi.Items.Add(2);
+            }
+        }
+
+        private void buttonRezYap_Click(object sender, EventArgs e) //RezervasyonYap
         {
 
             if (comboBoxKisi.SelectedItem == null)
@@ -61,7 +75,7 @@ namespace OtelReservasyonUygulamasi
 
 
             kisiSayisi = Convert.ToInt32(comboBoxKisi.SelectedItem);
-            hangiTip = Convert.ToInt32(comboBoxOdaTip.SelectedIndex);
+            hangiTip = Convert.ToInt32(comboBoxOdaTip.SelectedIndex); //0: TekYatakli 1:CiftYatakli 2:IkizYatakli
             basTar = dateTimePickerBasTar.Value;
             bitTar = dateTimePickerBitTar.Value;
 
@@ -78,31 +92,50 @@ namespace OtelReservasyonUygulamasi
             {
                 MessageBox.Show("Rezervasyonunuz " + oda_no + " no lu odaya yapıldı.");
             }
-
-
-            textBox1.Text += kisiSayisi.ToString() + "\r\n";
-            textBox1.Text += comboBoxOdaTip.SelectedItem.ToString() + "\r\n";
-            textBox1.Text += dateTimePickerBasTar.Text + "\r\n";
-            textBox1.Text += dateTimePickerBitTar.Text + "\r\n";
-            textBox1.Text += hangiTip.ToString() + "\r\n";
-
+            /*
+            ListViewItem ekle = new ListViewItem(kisiSayisi.ToString());
+            //ekle.SubItems.Add(kisiSayisi.ToString());
+            ekle.SubItems.Add(comboBoxOdaTip.SelectedItem.ToString());
+            ekle.SubItems.Add(dateTimePickerBasTar.Text);
+            ekle.SubItems.Add(dateTimePickerBitTar.Text);
+            ekle.SubItems.Add(hangiTip.ToString());
+            listView1.Items.Add(ekle);
+            */
+            //buttonRezYap += Click() ;
+            
         }
 
-        private void comboBoxOdaTip_SelectedIndexChanged(object sender, EventArgs e)
+        private void RezIpt_Click(object sender, EventArgs e)
         {
-            comboBoxKisi.Enabled = true;
-            comboBoxKisi.Items.Clear();
-       
-            if(comboBoxOdaTip.SelectedIndex == 0)
+            foreach (Oda oda in otel.odalar)
             {
-                comboBoxKisi.Items.Add(1);
-                comboBoxKisi.SelectedItem = false;
+                foreach (Rezervasyon rez in oda.rezervasyonlar)
+                {
+                    if(rez)
+                }
             }
-            else
+        }
+        
+        private void RezYaz_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            foreach (Oda oda in otel.odalar)
             {
-                comboBoxKisi.Items.Add(1);
-                comboBoxKisi.Items.Add(2);              
+                foreach (Rezervasyon rez in oda.rezervasyonlar)
+                {
+
+                    ListViewItem ekle = new ListViewItem(rez.No.ToString());
+                    ekle.SubItems.Add(oda.No.ToString());
+                    ekle.SubItems.Add(oda.GetType().Name.ToString());
+                    ekle.SubItems.Add(rez.Kisi_sayisi.ToString());
+                    ekle.SubItems.Add(rez.Baslangic_Tarihi.ToShortDateString());
+                    ekle.SubItems.Add(rez.Bitis_Tarihi.ToShortDateString());
+                    listView1.Items.Add(ekle);
+                }
+
             }
+
+
         }
     }
 }

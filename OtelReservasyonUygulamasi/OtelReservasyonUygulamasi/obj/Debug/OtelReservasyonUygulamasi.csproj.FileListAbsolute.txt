@@ -16,3 +16,11 @@ C:\Users\emino\Desktop\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReser
 C:\Users\emino\Desktop\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.csproj.CoreCompileInputs.cache
 C:\Users\emino\Desktop\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.exe
 C:\Users\emino\Desktop\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.pdb
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\bin\Debug\OtelReservasyonUygulamasi.exe
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\bin\Debug\OtelReservasyonUygulamasi.pdb
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.csprojResolveAssemblyReference.cache
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.Form1.resources
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.Properties.Resources.resources
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.csproj.GenerateResource.Cache
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.exe
+C:\Users\bugra\Desktop\En son Emin\proje-1-eokabm-master\OtelReservasyonUygulamasi\OtelReservasyonUygulamasi\obj\Debug\OtelReservasyonUygulamasi.pdb

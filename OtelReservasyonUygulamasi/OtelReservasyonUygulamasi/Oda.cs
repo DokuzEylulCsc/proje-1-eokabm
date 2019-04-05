@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OtelReservasyonUygulamasi
 {
     abstract class Oda 
     {
-        private int no; //oda numarası 101,102,...,405
+        private int no; //oda numarası 101,102,...,504
         private int kapasite; //1 ya da 2
-
-        private List<Rezervasyon> rezervasyonlar; //odaya ait rezervasyonlar
+        
+        public List<Rezervasyon> rezervasyonlar; //odaya ait rezervasyonlar
 
         public Oda(int no)
         {
@@ -48,6 +44,7 @@ namespace OtelReservasyonUygulamasi
                     yapilabilirMi = false;
                     break;
                 }
+                //yapılacak rezervasyonun odadaki bir rezervasyonla tarihleri çakışıyor
             }
             if(yapilabilirMi == true)
             {
@@ -60,6 +57,10 @@ namespace OtelReservasyonUygulamasi
             }
         }
 
-
+        public Boolean rezervasyonIptal(int rez_no)
+        {
+            return true;
+        }
+        
     }
 }
