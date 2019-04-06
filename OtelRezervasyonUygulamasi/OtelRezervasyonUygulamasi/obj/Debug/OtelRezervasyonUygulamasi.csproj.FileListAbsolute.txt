@@ -1,0 +1,10 @@
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.csprojAssemblyReference.cache
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.Properties.Resources.resources
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.csproj.GenerateResource.cache
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.csproj.CoreCompileInputs.cache
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\bin\Debug\OtelRezervasyonUygulamasi.exe.config
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\bin\Debug\OtelRezervasyonUygulamasi.exe
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\bin\Debug\OtelRezervasyonUygulamasi.pdb
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.exe
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.pdb
+C:\Users\emino\source\repos\OtelRezervasyonUygulamasi\OtelRezervasyonUygulamasi\obj\Debug\OtelRezervasyonUygulamasi.Form1.resources
