@@ -55,18 +55,20 @@
             this.comboBoxKisi.CausesValidation = false;
             this.comboBoxKisi.Enabled = false;
             this.comboBoxKisi.FormattingEnabled = true;
-            this.comboBoxKisi.Location = new System.Drawing.Point(150, 50);
+            this.comboBoxKisi.Location = new System.Drawing.Point(200, 62);
+            this.comboBoxKisi.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxKisi.MaxDropDownItems = 2;
             this.comboBoxKisi.MaxLength = 1;
             this.comboBoxKisi.Name = "comboBoxKisi";
-            this.comboBoxKisi.Size = new System.Drawing.Size(48, 21);
+            this.comboBoxKisi.Size = new System.Drawing.Size(63, 24);
             this.comboBoxKisi.TabIndex = 0;
             // 
             // buttonRezYap
             // 
-            this.buttonRezYap.Location = new System.Drawing.Point(62, 129);
+            this.buttonRezYap.Location = new System.Drawing.Point(83, 159);
+            this.buttonRezYap.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRezYap.Name = "buttonRezYap";
-            this.buttonRezYap.Size = new System.Drawing.Size(229, 23);
+            this.buttonRezYap.Size = new System.Drawing.Size(305, 28);
             this.buttonRezYap.TabIndex = 1;
             this.buttonRezYap.Text = "Rezervasyon Yap";
             this.buttonRezYap.UseVisualStyleBackColor = true;
@@ -74,9 +76,10 @@
             // 
             // RezIpt
             // 
-            this.RezIpt.Location = new System.Drawing.Point(62, 213);
+            this.RezIpt.Location = new System.Drawing.Point(83, 262);
+            this.RezIpt.Margin = new System.Windows.Forms.Padding(4);
             this.RezIpt.Name = "RezIpt";
-            this.RezIpt.Size = new System.Drawing.Size(229, 23);
+            this.RezIpt.Size = new System.Drawing.Size(305, 28);
             this.RezIpt.TabIndex = 2;
             this.RezIpt.Text = "Rezervasyon İptal Et";
             this.RezIpt.UseVisualStyleBackColor = true;
@@ -84,9 +87,10 @@
             // 
             // RezYaz
             // 
-            this.RezYaz.Location = new System.Drawing.Point(62, 289);
+            this.RezYaz.Location = new System.Drawing.Point(83, 312);
+            this.RezYaz.Margin = new System.Windows.Forms.Padding(4);
             this.RezYaz.Name = "RezYaz";
-            this.RezYaz.Size = new System.Drawing.Size(229, 23);
+            this.RezYaz.Size = new System.Drawing.Size(305, 28);
             this.RezYaz.TabIndex = 3;
             this.RezYaz.Text = "Rezervasyonları Listele";
             this.RezYaz.UseVisualStyleBackColor = true;
@@ -95,18 +99,20 @@
             // labelKisi
             // 
             this.labelKisi.AutoSize = true;
-            this.labelKisi.Location = new System.Drawing.Point(88, 53);
+            this.labelKisi.Location = new System.Drawing.Point(117, 65);
+            this.labelKisi.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelKisi.Name = "labelKisi";
-            this.labelKisi.Size = new System.Drawing.Size(56, 13);
+            this.labelKisi.Size = new System.Drawing.Size(72, 16);
             this.labelKisi.TabIndex = 5;
             this.labelKisi.Text = "Kişi Sayısı:";
             // 
             // labelOdaTip
             // 
             this.labelOdaTip.AutoSize = true;
-            this.labelOdaTip.Location = new System.Drawing.Point(94, 26);
+            this.labelOdaTip.Location = new System.Drawing.Point(125, 32);
+            this.labelOdaTip.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOdaTip.Name = "labelOdaTip";
-            this.labelOdaTip.Size = new System.Drawing.Size(50, 13);
+            this.labelOdaTip.Size = new System.Drawing.Size(63, 16);
             this.labelOdaTip.TabIndex = 6;
             this.labelOdaTip.Text = "Oda Tipi:";
             // 
@@ -118,21 +124,23 @@
             "Tek Yataklı",
             "Çift Yataklı",
             "İkiz Yataklı"});
-            this.comboBoxOdaTip.Location = new System.Drawing.Point(150, 23);
+            this.comboBoxOdaTip.Location = new System.Drawing.Point(200, 28);
+            this.comboBoxOdaTip.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxOdaTip.MaxDropDownItems = 3;
             this.comboBoxOdaTip.Name = "comboBoxOdaTip";
-            this.comboBoxOdaTip.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxOdaTip.Size = new System.Drawing.Size(187, 24);
             this.comboBoxOdaTip.TabIndex = 7;
             this.comboBoxOdaTip.SelectedIndexChanged += new System.EventHandler(this.comboBoxOdaTip_SelectedIndexChanged);
             // 
             // dateTimePickerBasTar
             // 
             this.dateTimePickerBasTar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerBasTar.Location = new System.Drawing.Point(150, 77);
-            this.dateTimePickerBasTar.MaxDate = new System.DateTime(2020, 11, 30, 0, 0, 0, 0);
+            this.dateTimePickerBasTar.Location = new System.Drawing.Point(200, 95);
+            this.dateTimePickerBasTar.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerBasTar.MaxDate = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
             this.dateTimePickerBasTar.MinDate = new System.DateTime(2019, 4, 5, 19, 59, 23, 0);
             this.dateTimePickerBasTar.Name = "dateTimePickerBasTar";
-            this.dateTimePickerBasTar.Size = new System.Drawing.Size(141, 20);
+            this.dateTimePickerBasTar.Size = new System.Drawing.Size(187, 22);
             this.dateTimePickerBasTar.TabIndex = 8;
             this.dateTimePickerBasTar.Value = new System.DateTime(2019, 4, 5, 19, 59, 23, 0);
             this.dateTimePickerBasTar.ValueChanged += new System.EventHandler(this.dateTimePickerBasTar_ValueChanged);
@@ -140,9 +148,10 @@
             // labelBasTar
             // 
             this.labelBasTar.AutoSize = true;
-            this.labelBasTar.Location = new System.Drawing.Point(59, 83);
+            this.labelBasTar.Location = new System.Drawing.Point(79, 102);
+            this.labelBasTar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBasTar.Name = "labelBasTar";
-            this.labelBasTar.Size = new System.Drawing.Size(85, 13);
+            this.labelBasTar.Size = new System.Drawing.Size(108, 16);
             this.labelBasTar.TabIndex = 9;
             this.labelBasTar.Text = "Başlangıç Tarihi:";
             // 
@@ -150,18 +159,20 @@
             // 
             this.dateTimePickerBitTar.Enabled = false;
             this.dateTimePickerBitTar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerBitTar.Location = new System.Drawing.Point(150, 103);
-            this.dateTimePickerBitTar.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.dateTimePickerBitTar.Location = new System.Drawing.Point(200, 127);
+            this.dateTimePickerBitTar.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerBitTar.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.dateTimePickerBitTar.Name = "dateTimePickerBitTar";
-            this.dateTimePickerBitTar.Size = new System.Drawing.Size(141, 20);
+            this.dateTimePickerBitTar.Size = new System.Drawing.Size(187, 22);
             this.dateTimePickerBitTar.TabIndex = 10;
             // 
             // labelBitTar
             // 
             this.labelBitTar.AutoSize = true;
-            this.labelBitTar.Location = new System.Drawing.Point(86, 109);
+            this.labelBitTar.Location = new System.Drawing.Point(115, 134);
+            this.labelBitTar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBitTar.Name = "labelBitTar";
-            this.labelBitTar.Size = new System.Drawing.Size(58, 13);
+            this.labelBitTar.Size = new System.Drawing.Size(73, 16);
             this.labelBitTar.TabIndex = 11;
             this.labelBitTar.Text = "Bitiş Tarihi:";
             // 
@@ -175,9 +186,10 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
-            this.listView1.Location = new System.Drawing.Point(376, 12);
+            this.listView1.Location = new System.Drawing.Point(501, 15);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(661, 426);
+            this.listView1.Size = new System.Drawing.Size(538, 369);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -219,25 +231,28 @@
             // 
             // textBoxRezIpt
             // 
-            this.textBoxRezIpt.Location = new System.Drawing.Point(197, 187);
+            this.textBoxRezIpt.Location = new System.Drawing.Point(263, 230);
+            this.textBoxRezIpt.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRezIpt.Name = "textBoxRezIpt";
-            this.textBoxRezIpt.Size = new System.Drawing.Size(94, 20);
+            this.textBoxRezIpt.Size = new System.Drawing.Size(124, 22);
             this.textBoxRezIpt.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 190);
+            this.label1.Location = new System.Drawing.Point(79, 234);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 13);
+            this.label1.Size = new System.Drawing.Size(170, 16);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Silinecek Rezervasyon No";
+            this.label1.Text = "Silinecek Rezervasyon No:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1080, 407);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxRezIpt);
             this.Controls.Add(this.listView1);
@@ -252,7 +267,11 @@
             this.Controls.Add(this.RezIpt);
             this.Controls.Add(this.buttonRezYap);
             this.Controls.Add(this.comboBoxKisi);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Otel Rezervasyon";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

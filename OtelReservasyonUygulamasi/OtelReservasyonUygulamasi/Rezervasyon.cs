@@ -2,7 +2,7 @@
 
 namespace OtelReservasyonUygulamasi
 {
-    class Rezervasyon
+    internal class Rezervasyon
     {
         private int no;
         private int kisi_sayisi;

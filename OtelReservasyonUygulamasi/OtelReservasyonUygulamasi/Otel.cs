@@ -3,84 +3,84 @@ using System.Collections.Generic;
 
 namespace OtelReservasyonUygulamasi
 {
-    class Otel
+    internal class Otel
     {
-        private static int oda_sayisi = 20;
-        public Oda[] odalar;
+        private int oda_sayisi;
+        private int toplam_kapasite;
+        private Oda[] odalar;
 
-        public Otel()
+        public int getKap()
         {
+            return toplam_kapasite;
+        }
+
+        public Otel(int odaSayisi)
+        {
+            this.oda_sayisi = odaSayisi;
             odalar = new Oda[oda_sayisi];
-            odalari_olustur();
+            toplam_kapasite = 0;
+            odalari_olustur();            
+        }
+
+        public Oda[] Odalar
+        {
+            get
+            {
+                return odalar;
+            }
         }
 
         private void odalari_olustur()
         {
-            int n = 0;
-            for(int i = 1; i <= 5; i++) //5 kat her kat 4 oda
+            Random r = new Random();
+            double rnd_number;
+            int k = 1;
+
+            for(int i = 0, j = 0; i < oda_sayisi; i++)
             {
-                for(int j = 1; j<= 4; j++)
+                rnd_number = r.NextDouble();
+
+                if (i % 10 == 0)//her kat 10 oda
                 {
-                    if (j <= 2)
-                    {
-                        odalar[n] = new TekYatakliOda(i * 100 + j);
-                    }
-                    else if(j<= 3)
-                    {
-                        odalar[n] = new CiftYatakliOda(i * 100 + j);
-                    }
-                    else
-                    {
-                        odalar[n] = new IkizYatakliOda(i * 100 + j);
-                    }
-                    n++;
+                    j++;
+                    k = 1;
                 }
+
+                if(rnd_number < 0.40) //Tek yataklı oda oluşturulacak
+                {
+                    odalar[i] = new TekYatakliOda(j * 100 + k);
+                    k++;
+                    toplam_kapasite += 1;
+                }
+                else if(rnd_number < 0.75) //Çift yataklı oda oluşturulacak
+                {
+                    odalar[i] = new CiftYatakliOda(j * 100 + k);
+                    k++;
+                    toplam_kapasite += 2;
+                }
+                else //İkiz yataklı oda oluşturulacak
+                {
+                    odalar[i] = new IkizYatakliOda(j * 100 + k);
+                    k++;
+                    toplam_kapasite += 2;
+                }
+
             }
+
         }
 
-        public int rezervasyonYap(Rezervasyon rezervasyon, int hangiTip)
+        public int rezervasyonYap(Rezervasyon rezervasyon, Type tip)
         {
             int kontrol = 0;
-            
-            if(hangiTip == 0) //tek yataklı odalar kontrol edilecek
+
+            foreach(Oda o in Odalar)
             {
-                foreach(Oda o in odalar)
+                if (o.GetType() != tip) continue;
+                else
                 {
-                    if (o.No % 100 == 1 || o.No % 100 == 2)
-                    {
-                        kontrol = o.rezervasyonYap(rezervasyon);
-                        
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                    if (kontrol != 0) break; //rezervasyon yapıldı. oda no: kontrol
+                    kontrol = o.rezervasyonYap(rezervasyon);
                 }
-            }
-            else if(hangiTip == 1) //çift yataklı odalar kontrol edilecek
-            {
-                foreach (Oda o in odalar)
-                {
-                    if (o.No % 100 != 3 ) continue;
-                    else
-                    {
-                        kontrol = o.rezervasyonYap(rezervasyon);
-                    }
-                    if (kontrol != 0) break; //rezervasyon yapıldı. oda no: kontrol
-                }
-            }
-            else if(hangiTip == 2) //ikiz yataklı odalar kontrol edilecek
-            {
-                foreach (Oda o in odalar)
-                {
-                    if (o.No % 100 != 4) continue;
-                    else
-                    {
-                        kontrol = o.rezervasyonYap(rezervasyon);
-                    }
-                    if (kontrol != 0) break; //rezervasyon yapıldı. oda no: kontrol
-                }
+                if (kontrol != 0) break;
             }
             
             return kontrol;
@@ -88,7 +88,17 @@ namespace OtelReservasyonUygulamasi
 
         public Boolean rezervasyonIptal(int rez_no) 
         {
-            return true;
+            foreach (Oda oda in odalar)
+            {
+                foreach (Rezervasyon rez in oda.Rezervasyonlar)
+                {
+                    if (oda.rezervasyonIptal(rez_no))
+                    {
+                        return true;
+                    }                
+                }
+            }
+            return false;
         }
         
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OtelReservasyonUygulamasi
 {
-    abstract class Oda 
+    internal abstract class Oda 
     {   
         private int no; //oda numarası 101,102,...,504
         private int kapasite; //1 ya da 2
@@ -53,10 +53,11 @@ namespace OtelReservasyonUygulamasi
                 }
                 //yapılacak rezervasyonun odadaki bir rezervasyonla tarihleri çakışıyor
             }
-            if(yapilabilirMi == true)
+
+            if(yapilabilirMi == true) 
             {
-                rezervasyonlar.Add(rezervasyon);
-                return this.no;
+                rezervasyonlar.Add(rezervasyon); 
+                return this.no; //rezervasyonun yapıldığı oda no döndürülüyor
             }
             else
             {
@@ -66,19 +67,15 @@ namespace OtelReservasyonUygulamasi
 
         public Boolean rezervasyonIptal(int rez_no)
         {
-            bool silindimi=true;
             foreach(Rezervasyon rez in rezervasyonlar)
             {
                 if (rez.No == rez_no)
                 {
                     rezervasyonlar.Remove(rez);
-                    silindimi = true;
-                    break;
+                    return true;
                 }
-                else
-                    silindimi = false;
             }
-            return silindimi;
+            return false;
         }
         
     }

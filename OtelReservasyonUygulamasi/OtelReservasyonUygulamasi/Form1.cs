@@ -8,12 +8,6 @@ namespace OtelReservasyonUygulamasi
     public partial class Form1 : Form
     {
         private Otel otel;
-        private int hangiTip;
-        private int kisiSayisi;
-        //private int rez_no;
-        private int oda_no;
-        private DateTime basTar;
-        private DateTime bitTar;
 
         public Form1()
         {
@@ -22,20 +16,22 @@ namespace OtelReservasyonUygulamasi
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            otel = new Otel();
+            otel = new Otel(35); //toplam oda sayısı gönderilip otel oluşturuluyor  
         }
 
         private void dateTimePickerBasTar_ValueChanged(object sender, EventArgs e)
         {
-            dateTimePickerBitTar.MinDate = dateTimePickerBasTar.Value;
+            dateTimePickerBitTar.MinDate = dateTimePickerBasTar.Value.AddDays(1);
             dateTimePickerBitTar.Enabled = true;
-            //bitiş tarihi datetimerpicker ın min alabileceği değeri baş tarihinde seçilen değer yapıyor.
+            //seçilebilecek bitiş tarihini başlangıç tarihinin 1 fazlası yapıyor.
         }
 
-        private void comboBoxOdaTip_SelectedIndexChanged(object sender, EventArgs e) //
+        private void comboBoxOdaTip_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxKisi.Enabled = true;
             comboBoxKisi.Items.Clear();
+            comboBoxKisi.SelectedItem = null;
+            comboBoxKisi.Text = null;
 
             if (comboBoxOdaTip.SelectedIndex == 0)
             {
@@ -47,11 +43,23 @@ namespace OtelReservasyonUygulamasi
                 comboBoxKisi.Items.Add(1);
                 comboBoxKisi.Items.Add(2);
             }
+            //Oda tipine göre seçilebilecek kişi sayısı belirleniyor.
         }
 
         private void buttonRezYap_Click(object sender, EventArgs e) //RezervasyonYap
         {
+            int hangiTip;
+            Type tip;
+            int kisiSayisi;
+            int oda_no;
+            DateTime basTar;
+            DateTime bitTar;
 
+            if(comboBoxKisi.SelectedItem == null && comboBoxOdaTip.SelectedItem == null)
+            {
+                MessageBox.Show("Lütfen önce seçimlerinizi yapınız.");
+                return;
+            }
             if (comboBoxKisi.SelectedItem == null)
             {
                 MessageBox.Show("Hatalı kişi sayısı!");
@@ -62,74 +70,69 @@ namespace OtelReservasyonUygulamasi
                 MessageBox.Show("Hatalı oda tipi seçimi!");
                 return;
             }
-            if (dateTimePickerBitTar.Text == dateTimePickerBasTar.Text)
-            {
-                MessageBox.Show("Bitiş Tarihi başlangıç tarihine eşit olmamalı!");
-                return;
-            }
-            if(comboBoxKisi.SelectedIndex == 1 && comboBoxOdaTip.SelectedIndex == 0)
-            {
-                MessageBox.Show("Tek kişilik odaya iki kişi rezervasyon yapılamaz!");
-                return;
-            }
 
-
+                
             kisiSayisi = Convert.ToInt32(comboBoxKisi.SelectedItem);
             hangiTip = Convert.ToInt32(comboBoxOdaTip.SelectedIndex); //0: TekYatakli 1:CiftYatakli 2:IkizYatakli
+
+            if(hangiTip == 0)
+            {
+                tip = typeof(TekYatakliOda);
+            }
+            else if (hangiTip == 1)
+            {
+                tip = typeof(CiftYatakliOda);
+            }
+            else
+            {
+                tip = typeof(IkizYatakliOda);
+            }
+
+ 
             basTar = dateTimePickerBasTar.Value;
             bitTar = dateTimePickerBitTar.Value;
 
-
             Rezervasyon rezervasyon = new Rezervasyon(kisiSayisi, basTar, bitTar);
-            oda_no = otel.rezervasyonYap(rezervasyon, hangiTip);
-
+            oda_no = otel.rezervasyonYap(rezervasyon, tip);
 
             if(oda_no == 0)
             {
-                MessageBox.Show("Rezervasyon basarisiz!");
+                MessageBox.Show("Rezervasyon başarısız!");
             }
             else
             {
-                MessageBox.Show("Rezervasyonunuz " + oda_no + " no lu odaya yapıldı.");
+                MessageBox.Show("Rezervasyonunuz " + oda_no + " no lu odaya yapıldı." +
+                    "\nRezervasyon numaranız: " + rezervasyon.No);
+                listView1.Items.Clear();
             }
             
-            buttonRezYap.Click += new EventHandler(RezYaz_Click);   //Burası Silinebilir
         }
 
-        private void RezIpt_Click(object sender, EventArgs e)
+        private void RezIpt_Click(object sender, EventArgs e) //Rezervasyon İptal
         {
-            bool kontrol = true;
-            if (Int32.TryParse(textBoxRezIpt.Text, out int value))  //Eğer Numerik ise
+            if (Int32.TryParse(textBoxRezIpt.Text, out int value))  //Eğer numerik ise
             {
-                foreach (Oda oda in otel.odalar)
-                {
-                    foreach(Rezervasyon rez in oda.Rezervasyonlar)
-                    {
-                        if (oda.rezervasyonIptal(Int32.Parse(textBoxRezIpt.Text)) == true)
-                        {
-                            oda.rezervasyonIptal(Int32.Parse(textBoxRezIpt.Text));
-                            MessageBox.Show("Başarıyla Silindi");
-                            kontrol = false;
-                            break;
-                        }
-                    }
+                if (otel.rezervasyonIptal(Convert.ToInt32(textBoxRezIpt.Text))){
+                    MessageBox.Show("Rezervasyonunuz başarıyla iptal edildi.");
+                    listView1.Items.Clear();
                 }
-                
+                else
+                {
+                    MessageBox.Show("Böyle bir rezervasyon bulunmamaktadır.");
+                }
             }
             else
             {
-                //Eğer numerik Değilse
-                MessageBox.Show("Lütfen Sayi Giriniz.");
+                //Eğer numerik değilse
+                MessageBox.Show("Lütfen doğru formatta sayı giriniz.");
             }
-            if(kontrol)
-                MessageBox.Show("Silinecek Rezervasyon Bulunamadı.");
-
+            textBoxRezIpt.Text = null;
         }
         
-        private void RezYaz_Click(object sender, EventArgs e)
+        private void RezYaz_Click(object sender, EventArgs e) //Rezervasyon listele
         {
             listView1.Items.Clear();
-            foreach (Oda oda in otel.odalar)
+            foreach (Oda oda in otel.Odalar)
             {
                 foreach (Rezervasyon rez in oda.Rezervasyonlar)
                 {
